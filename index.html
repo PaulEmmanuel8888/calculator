@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+        <title>Simple Calculator (HTML, CSS, and JavaScript)</title>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            const display = document.getElementById("display")
+            function updateDisplay(newValue, display) {
+                display.value += newValue;
+                display.scrollLeft = display.scrollWidth
+            }
+            function solve(display) {
+                if (display.value == '') {
+                    display.value = ''
+                }
+                else {
+                result = eval(display.value);
+                display.value = result }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container" draggable="true">
+            <div class="calculator">
+                <form>
+                    <div class="display">
+                
+                        <input type="text" id="display" name="display" readonly="true" placeholder="|" />
+                    </div>
+                    <div>
+                        <input type="button" value="AC" onclick="display.value = '' " class="operator">
+                        <input type="button" value="DE" onclick="display.value = display.value.toString().slice(0,-1) " class="operator">
+                        <input type="button" value="." onclick="updateDisplay('.', display) " class="operator">
+                        <input type="button" value="/" onclick="updateDisplay('/', display) " class="operator">
+                    </div>
+                    <div>
+                        <input type="button" value="7" onclick="updateDisplay('7', display) " class="number">
+                        <input type="button" value="8" onclick="updateDisplay('8', display) " class="number">
+                        <input type="button" value="9" onclick="updateDisplay('9', display) " class="number">
+                        <input type="button" value="*" onclick="updateDisplay('*', display) " class="operator">
+                    </div>
+                    <div>
+                        <input type="button" value="4" onclick="updateDisplay('4', display) " class="number">
+                        <input type="button" value="5" onclick="updateDisplay('5', display) " class="number">
+                        <input type="button" value="6" onclick="updateDisplay('6', display) " class="number">
+                        <input type="button" value="-" onclick="updateDisplay('-', display) " class="operator">
+                    </div>
+                    <div>
+                        <input type="button" value="1" onclick="updateDisplay('1', display) " class="number">
+                        <input type="button" value="2" onclick="updateDisplay('2', display) " class="number">
+                        <input type="button" value="3" onclick="updateDisplay('3', display) " class="number">
+                        <input type="button" value="+" onclick="updateDisplay('+', display) " class="operator">
+                    </div>
+                    <div class="div-00">
+                        <input type="button" value="00" onclick="updateDisplay('00', display) " id="two-button" class="number two-button">
+                        <input type="button" value="0" onclick="updateDisplay('0', display) " class="number">
+                        
+                        <input type="button" value="=" onclick=" solve(display)" class="equal operator">
+                        
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>
